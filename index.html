@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<style>
+		* {
+			margin:0;
+			padding: 0;
+		}
+		html, body {
+		  height: 100%;
+		}
+		header div {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		header div img {
+			position: absolute;
+			z-index: 1;
+			top: 30px;
+			width: 50%;
+		}
+		#main-section .background-image {
+			width: 100%;
+			opacity: 1;
+			z-index: 0;
+		}
+		#gifts-section{
+			background-color: #292727;
+		}
+		#gifts-section .gift-container {
+			display: inline;
+		}
+		#gifts-section img {
+			cursor: pointer;
+			transform: scale(0.7);
+		}
+		#gifts-section .open-gift {
+			display: none;
+		}
+		#qua {
+			background:black;
+			opacity: .8;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua #qua-in-qua {
+			width: 500px;
+			height: 500px;
+			border-radius: 50%;
+			background: white;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua #qua-in-qua img {
+			
+			transform: scale(.5);
+		}
+		#qua #qua-in-qua button {
+			position: absolute;
+			bottom: 5px;
+			left: 45%;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div>
+			<img src="happy_birthday.gif" alt="hpbdImage">
+			
+		</div>
+	</header>
+	<section id="main-section">
+		<img src="20190303_191138.jpg" alt="20190303_191138.jpg" class="background-image">
+	</section>
+	<section id="gifts-section" class="col-12">
+		<div class="gift-container">
+			<img src="goi-dac-biet.gif" alt="goi-dac-biet.gif" class="gift col-3">
+			<button class="btn btn-danger open-gift open-gift1">Mở</button>
+		</div>
+		
+		<div class="gift-container">
+			<img src="KH8E.gif" alt="KH8E.gif" class="gift col-2">
+			<button class="btn btn-danger open-gift open-gift2">Mở</button>
+		</div>
+			
+		<div class="gift-container">
+			<img src="green-slime-11.gif" alt="tenor.gif" class="gift col-3">
+			<button class="btn btn-danger open-gift open-gift3">Mở</button>
+		</div>
+		<div class="gift-container">
+			<img src="6a00d8341caabc53ef01b7c708a8e7970b-600wi.gif" alt="tenor (1).gif" class="gift col-3">
+			<button class="btn btn-danger open-gift open-gift4">Mở</button>
+		</div>
+		<button class="btn btn-warning col-12" onclick="alert('Click vào 4 món trên chứ click đây chi')"><em><strong>CHỌN CHO MÌNH MỘT MÓN QUÀ NÀO<strong><em></button>
+	</section>
+	<div id="qua">
+		<img src="goi-dac-biet.gif" alt="goi-dac-biet.gif" class="qua-img">
+		<div id="qua-in-qua" class="col-5">
+			<img src="maria.jpg" alt="green-slime-11.gif" style="width:400px;">
+			<button class="btn btn-danger get-button">
+				NHẬN
+			</button>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".gift-container").each(function() {
+				$(".gift-container").mouseover(function() {
+					$(this).children().css("transform","scale(1.4)");
+					$(this).find("button").show();
+					$("#gifts-section").css({"border-top": "0px solid #ffc107"}).animate({borderWidth:"1px"},300);
+				})
+				.mouseout(function() {
+					$(this).children().css("transform","scale(0.7)");
+					$(this).find("button").hide();
+					$("#gifts-section").animate({borderWidth:"0px"},50);
+				})
+			})
+
+			$(".open-gift1").click(function() {
+				$(".gift").eq(0).hide();
+				$("#qua-in-qua").hide();
+				$("#qua").css("display","flex");
+				
+				setTimeout(function() {
+					$(".qua-img").hide();
+				},2000);
+				setTimeout(function() {
+					$("#qua-in-qua").show();
+					alert("Phần thưởng của bạn là một em Maria ozaoa")
+				},2200);
+
+			})
+
+			$(".get-button").click(function() {
+				$("#qua").hide();
+			})
+		})
+
+	</script>
+</body>
+</html>
